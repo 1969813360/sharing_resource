@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AuthorMessage</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/user/authorMsg.js}"></script>
+<div style="text-align: center;margin: 0px -40px">
+    <form id="authorForm" class="layui-form" style="text-align: center">
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">姓名：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="username" class="layui-input" style="width: 200px;display: inline-block" readonly="readonly"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">段位：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="sort" class="layui-input" style="width: 200px;display: inline-block" readonly="readonly"/>
+            </div>
+        </div>
+        <div class="layui-form-item" align="center">
+            <label class="layui-form-label"  style="width: 150px">邮箱：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="email" class="layui-input" style="width: 200px;display: inline-block" readonly="readonly"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">积分：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="score" class="layui-input" style="width: 200px;display: inline-block" readonly="readonly"/>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

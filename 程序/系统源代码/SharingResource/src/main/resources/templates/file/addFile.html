@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AddRecruit_area</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/file/addFile.js}"></script>
+<form class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 150px">所属科目：</label>
+        <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+            <select name="fileCategory"  id="fileCategory" lay-verify="required">
+                <option th:each="fileCategory:${session.allFileCategory}" th:value="${fileCategory.id}" th:text="${fileCategory.name}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="width: 150px">资源简介：</label>
+        <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+            <textarea name="fileIntroduce" id="fileIntroduce" placeholder="请输入资源简介" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-upload">
+        <button type="button" class="layui-btn layui-btn-normal" id="selectFile">选择文件</button>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block" align="center">
+            <button type="button" class="layui-btn" id="uploadFile">开始上传</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

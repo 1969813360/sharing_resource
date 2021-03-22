@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AddStudent</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/user/updateUser.js}"></script>
+<div style="text-align: center;margin: 0px -40px">
+    <input type="hidden" id="bemail"/>
+    <input type="hidden" id="bname"/>
+    <input type="hidden" id="bpassword"/>
+    <input type="hidden" id="bscore"/>
+    <form id="updateUserForm" class="layui-form" style="text-align: center">
+        <div class="layui-form-item" align="center">
+            <label class="layui-form-label"  style="width: 150px">邮箱：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="email" class="layui-input" lay-verify="required | email" style="width: 200px;display: inline-block" placeholder="请输入正确的邮箱"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">姓名：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="username" class="layui-input" style="width: 200px;display: inline-block" placeholder="请输入您的姓名"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">密码：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="password" class="layui-input" style="width: 200px;display: inline-block" placeholder="请输入密码"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">我的积分：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <input type="text" id="score" class="layui-input" style="width: 200px;display: inline-block" placeholder="请输入密码" readonly="readonly"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">积分规则：</label>
+            <div class="layui-input-block" style="width: 200px;display: inline-block;float: left">
+                <textarea placeholder="请输入内容" class="layui-textarea" style="width: 200px;display: inline-block" readonly="readonly">提交文件评分大于4分即可算入用户积分。0-30分:倔强青铜;31-60:不屈白银;61-90:荣耀黄金;91-120:尊贵铂金;121-150:璀璨钻石;151-180:超凡大师;180以上:最强王者</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block" align="center">
+                <button type="button" class="layui-btn layui-btn-warm" onclick="closeButton()">取消</button>
+                <button type="button" class="layui-btn layui-btn-primary" onclick="resetUser()">重置表单</button>
+                <button type="button" class="layui-btn" onclick="updateUserButton()">更新</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

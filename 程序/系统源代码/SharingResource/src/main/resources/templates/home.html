@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>柯婷校园资源共享系统</title>
+    <link href="favicon.ico" rel="shortcut icon"/>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body class="layui-layout-body">
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/home/home.js}"></script>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">柯婷校园资源共享系统</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img th:src="@{/images/myhead.jpeg}" class="layui-nav-img"/>
+                    <label th:text="${session.username}" />
+                </a>
+            </li>
+            <li class="layui-nav-item"><a onclick="MyHouse()">个人中心</a></li>
+            <li class="layui-nav-item"><a th:href="@{/}">退出</a></li>
+        </ul>
+    </div>
+    <form class="layui-form" name="searchform">
+        <div class="layui-form-item" align="center">
+            <label class="layui-form-label" style="width: 70px">所属科目：</label>
+            <div class="layui-input-block" style="width: 100px;display: inline-block;float: left">
+                <select name="fileCategory"  id="fileCategory" lay-verify="required">
+                    <option value="*" selected="selected">所有科目</option>
+                    <option th:each="fileCategory:${session.allFileCategory}" th:value="${fileCategory.id}" th:text="${fileCategory.name}"></option>
+                </select>
+            </div>
+            <label class="layui-form-label" style="width: 60px;"> 文件名：</label>
+            <div class="layui-input-block" style="display: block;float: left">
+                <input type="text" id="filename"  placeholder="默认查询所有"
+                       autocomplete="off" class="layui-input" style="width: 100px;display: inline-block ;margin-left: 10px"/>
+            </div>
+            <label class="layui-form-label" style="width: 70px">文件类型：</label>
+            <div class="layui-input-block" style="width:100px;display: inline-block;float: left">
+                <select name="filetype"  id="filetype"  lay-verify="required">
+                    <option value="*">所有类型</option>
+                    <option value=".txt">.txt</option>
+                    <option value=".doc">.doc</option>
+                    <option value=".docx">.docx</option>
+                    <option value=".xls">.xls</option>
+                    <option value=".xlsx">.xlsx</option>
+                    <option value=".ppt">.ppt</option>
+                    <option value=".pptx">.pptx</option>
+                    <option value=".jpg">.jpg</option>
+                    <option value=".png">.png</option>
+                    <option value=".mp4">.mp4</option>
+                    <option value=".pdf">.pdf</option>
+                </select>
+            </div>
+            <div class="layui-input-block" style="display: block;float: left">
+                <input type="button" id="search" value="搜索" style="height: 38px;width: 50px;background: mediumaquamarine"/>
+            </div>
+        </div>
+    </form>
+    <table id="FileTable" th:name="demo" lay-filter="test" lay-size="lg"></table>
+
+    <!--下面是头工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="add">上传</button>
+            <button class="layui-btn layui-btn-sm" lay-event="allfile">所有文件</button>
+            <button class="layui-btn layui-btn-sm" lay-event="myfile">我的上传</button>
+        </div>
+    </script>
+
+    <!--这是行工具栏-->
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="author">作者信息</a>
+        <a class="layui-btn layui-btn-xs" lay-event="view">查看</a>
+        <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="download">下载</a>
+        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="comment">评分</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</div>
+<div class="layui-footer" align="center">
+    柯婷校园资源共享系统
+</div>
+</body>
+</html>

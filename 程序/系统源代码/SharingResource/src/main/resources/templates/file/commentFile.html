@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>AddRecruit_area</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/file/commentFile.js}"></script>
+<input type="hidden" id="fileid"/>
+<input type="hidden" id="h1" value="2.5"/>
+<input type="hidden" id="h2" value="2.5"/>
+<input type="hidden" id="h3" value="2.5"/>
+<input type="hidden" id="h4" value="2.5"/>
+<table class="layui-table">
+    <colgroup>
+        <col width="140"/>
+        <col width="200"/>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>项目</th>
+            <th>评分</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td><label>帮助度：</label></td><td><div id="x3"></div></td></tr>
+        <tr><td><label>满意程度：</label></td><td><div id="x1"></div></td></tr>
+        <tr><td><label>内容质量：</label></td><td><div id="x2"></div></td></tr>
+        <tr><td><label>内容与介绍符合度：</label></td><td><div id="x4"></div></td></tr>
+        <tr ><td colspan="2" align="center"><button class="layui-btn" onclick="submitComment()">提交</button></td></tr>
+    </tbody>
+</table>
+</body>
+</html>

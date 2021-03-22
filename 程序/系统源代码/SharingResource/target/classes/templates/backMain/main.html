@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>校园资源共享管理系统</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body class="layui-layout-body">
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/tabCard/tabControll.js}"></script>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">校园资源共享管理系统</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img th:src="@{/images/myhead.jpeg}" class="layui-nav-img"/>
+                    Admin
+                </a>
+            </li>
+            <li class="layui-nav-item"><a onclick="changePassword()">修改密码</a></li>
+            <li class="layui-nav-item"><a th:href="@{/}">退出</a></li>
+        </ul>
+    </div>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed ">
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-id="1" data-title="用户管理" data-url="AllUser"
+                                class="site-demo-active" data-type="tabAdd">用户管理
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-id="2" data-title="文件管理" data-url="AllFile"
+                               class="site-demo-active" data-type="tabAdd">文件管理
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="javascript:;" data-id="3" data-title="科目管理" data-url="AllFileCategory"
+                               class="site-demo-active" data-type="tabAdd">科目管理
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-id="4" data-title="评分记录" data-url="AllScoreRecord"
+                               class="site-demo-active" data-type="tabAdd">评分记录
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-id="5" data-title="文件操作记录" data-url="AllOperationRecord"
+                               class="site-demo-active" data-type="tabAdd">文件操作记录
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-tab" lay-filter="demo" lay-allowclose="true" style="margin-left: 150px;">
+        <ul class="layui-tab-title"></ul>
+        <div class="layui-tab-content"></div>
+    </div>
+    <div class="layui-footer" align="center">
+        柯婷人才市场管理系统
+    </div>
+</div>
+</body>
+</html>

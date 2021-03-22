@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>科目管理</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+</head>
+<body>
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{/js/fileCategory/allFileCategory.js}"></script>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+<form class="layui-form" name="searchform">
+    <div class="layui-form-item" align="center">
+        <label class="layui-form-label" style="width: 90px;">科目名：</label>
+        <div class="layui-input-block" style="display: block;float: left">
+            <input type="text" id="name"  placeholder="默认查询所有"
+                   autocomplete="off" class="layui-input" style="width: 230px;display: inline-block ;margin-left: 10px"/>
+            <input type="button" id="search" value="搜索" style="height: 38px;width: 50px;background: mediumaquamarine"/>
+            <!--<button class="layui-btn" id="search">搜索</button>-->
+        </div>
+    </div>
+</form>
+<table id="FileCategoryTable" lay-filter="test" lay-size="lg"></table>
+<!--下面是头工具栏-->
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+        <button class="layui-btn layui-btn-sm" lay-event="all">全部科目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="del">批量删除</button>
+    </div>
+</script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+</body>
+</html>

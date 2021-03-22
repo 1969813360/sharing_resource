@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/loginCss.css}" type="text/css"/>
+</head>
+<body th:background="@{/images/background.jpg}">
+<script th:src="@{/layui/layui.js}"></script>
+<script th:src="@{js/jquery/jquery.min.js}"></script>
+<script th:inline="javascript">//使用thymeleaf模版后页面内调用sesssion的方法
+    //<![CDATA[
+    layui.use('layer',function () {
+        var layer = layui.layer;
+        var $ = layui.jquery;
+        // var wronglogin = [[${session.wronglogin}]];
+    })
+    //]]>
+    function gotoAddStudentButton() {
+        window.location.href="gotoAddStudent?type=1"
+    }
+    function loginButton(){
+        var $=layui.jquery;
+        var email=document.getElementById("email").value;
+        var password=document.getElementById("password").value;
+        $.ajax({
+            url:"login",
+            type:"post",
+            data:{
+                email:email,
+                password:password
+            },
+            success:function(msg){
+                console.log(msg);
+                if (msg.code===1){layer.msg("您的登陆信息有误，请重新登陆！", {icon: 5})}
+                else if (msg.code===2)
+                {
+                    if (msg.type===1)
+                        window.location.href="gotoMain?type=1";
+                    else
+                        window.location.href="gotoMain?type=2";
+                }
+            }
+        })
+    }
+</script>
+    <div class="dowebok">
+    <form>
+        <div class="logo"></div>
+        <div class="form-item">
+            <input id="email" name="email" type="text" autocomplete="off" placeholder="请输入正确的邮箱："/>
+        </div>
+        <div class="form-item">
+            <input id="password" name="password" type="password" autocomplete="off" placeholder="登录密码"/>
+        </div>
+        <div class="form-item">
+            <button type="button" style="width: 180px;display: inline-block;float: left" onclick="gotoAddStudentButton()">注 册</button>
+            <button type="button" style="width: 180px;display: inline-block;float: right" onclick="loginButton()">登 录</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>>
